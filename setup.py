@@ -1,7 +1,24 @@
-from setuptools import setup, find_packages
+import os
+print("Current working directory:", os.getcwd())
+print("Files in this directory:", os.listdir())
 
-with open("requirements.txt") as f:
-    requirements = f.read().splitlines()
+
+from setuptools import setup, find_packages
+from pathlib import Path
+
+# Always resolve paths relative to the location of setup.py
+here = Path(__file__).resolve().parent
+requirements_path = here / "requirements.txt"
+readme_path = here / "README.md"
+
+# Defensive: Check if files exist
+if not requirements_path.exists():
+    raise FileNotFoundError(f"{requirements_path} does not exist")
+if not readme_path.exists():
+    raise FileNotFoundError(f"{readme_path} does not exist")
+
+requirements = requirements_path.read_text().splitlines()
+long_description = readme_path.read_text()
 
 setup(
     name="Wilson_Beta_wrapper",
