@@ -22,7 +22,7 @@ long_description = readme_path.read_text()
 
 setup(
     name="Wilson_Beta_wrapper",
-    version="0.1.1",
+    version="0.1.2",
     author="Koushik Kamalahasan",
     author_email="koushikkamalahasan@gmail.com",
     description="A wrapper to modify beta functions in the Wilson SMEFT package.",
