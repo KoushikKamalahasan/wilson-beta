@@ -25,8 +25,8 @@ def beta_wrapper(originalbeta, required_key):
     Wraps the original beta function to intercept and modify specific keys.
     """
     @functools.wraps(originalbeta)
-    def wrapped_beta(C, Highscale=1, newphys=True):
-        Beta = originalbeta(C, Highscale=Highscale, newphys=newphys)
+    def wrapped_beta(C, scale, *args, **kwargs):  
+        Beta = originalbeta(C, scale, *args, **kwargs)  
         if required_key in Beta:
             Beta[required_key] = beta_editor(required_key, Beta[required_key])
         return Beta
