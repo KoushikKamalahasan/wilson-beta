@@ -21,8 +21,8 @@ requirements = requirements_path.read_text().splitlines()
 long_description = readme_path.read_text()
 
 setup(
-    name="Wilson_Beta_wrapper",
-    version="0.1.4",
+    name="wilson-beta",
+    version="1.0.2",
     author="Koushik Kamalahasan",
     author_email="koushikkamalahasan@gmail.com",
     description="A wrapper to modify beta functions in the Wilson SMEFT package.",
