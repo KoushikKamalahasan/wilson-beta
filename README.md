@@ -10,4 +10,4 @@ Change specific values (like Wilson coefficients) in the beta dictionary
 
 Do it on the fly by calling configure_patch(key, value)
 
-It’s handy if you want to experiment, test changes quickly, or try out custom beta behaviors—without having to mess with wilson’s core code.
+It's handy if you want to experiment, test changes quickly, or try out custom beta behaviors—without having to mess with wilson's core code.
