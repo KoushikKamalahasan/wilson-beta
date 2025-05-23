@@ -25,11 +25,23 @@ def beta_wrapper(originalbeta, required_key):
     Wraps the original beta function to intercept and modify specific keys.
     """
     @functools.wraps(originalbeta)
-    def wrapped_beta(C, scale, *args, **kwargs):  
-        Beta = originalbeta(C, scale, *args, **kwargs)  
+    def wrapped_beta(C, *args, **kwargs):
+        # Extract 'scale' from args or kwargs
+        scale = kwargs.get('scale', None)
+        if scale is None:
+            if len(args) >= 1:
+                scale = args[0]
+                args = args[1:]
+            else:
+                raise TypeError("patched beta() missing required argument: 'scale'")
+
+        Beta = originalbeta(C, scale, *args, **kwargs)
+
         if required_key in Beta:
             Beta[required_key] = beta_editor(required_key, Beta[required_key])
+
         return Beta
+
     return wrapped_beta
 
 def patch_wilson_beta(required_key):
